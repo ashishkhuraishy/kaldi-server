@@ -11,7 +11,7 @@ RUN apt-get update && \
     wget sox libtool python2.7\
     git subversion python3 \
     zlib1g-dev gfortran ca-certificates \
-    patch ffmpeg vim \
+    patch ffmpeg vim systemd\
     build-essential zlib1g-dev \
     libncurses5-dev libgdbm-dev libnss3-dev \
     libssl-dev libsqlite3-dev libreadline-dev \
