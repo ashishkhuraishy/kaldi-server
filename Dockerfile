@@ -26,6 +26,6 @@ COPY --from=base /opt/kaldi /opt/kaldi
 RUN wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz &&\
     tar -xf Python-3.9.1.tgz && cd Python-3.9.1 &&\
     ./configure --enable-optimizations && make -j 2 &&\
-    make altinstall && ln -sf /usr/bin/python3.9 /usr/bin/python3
+    make altinstall && ln -sf /usr/local/bin/python3.9 /usr/bin/python3
 
 WORKDIR /opt/kaldi/
