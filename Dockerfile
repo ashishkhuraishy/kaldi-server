@@ -1,3 +1,4 @@
+FROM kaldiasr/kaldi:latest AS base
 FROM nginx
 
 LABEL MAINTAINER="Ashish Khuraishy(ashishkhuraishy@gmail.com)"
@@ -19,18 +20,7 @@ RUN apt-get update && \
 
 # Downloading and setting up kaldi asr
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN git clone --depth 1 https://github.com/kaldi-asr/kaldi.git /opt/kaldi && \
-    cd /opt/kaldi/tools && \
-    ./extras/install_mkl.sh && \
-    make -j $(nproc) && \
-    cd /opt/kaldi/src && \
-    ./configure --shared && \
-    make depend -j $(nproc) && \
-    make -j $(nproc) && \
-    find /opt/kaldi  -type f \( -name "*.o" -o -name "*.la" -o -name "*.a" \) -exec rm {} \; && \
-    find /opt/intel -type f -name "*.a" -exec rm {} \; && \
-    find /opt/intel -type f -regex '.*\(_mc.?\|_mic\|_thread\|_ilp64\)\.so' -exec rm {} \; && \
-    rm -rf /opt/kaldi/.git
+COPY --from=base /opt/kaldi /opt/kaldi
 
 # Installing python3.9
 RUN wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz &&\
