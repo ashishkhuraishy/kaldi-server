@@ -1,1 +1,1 @@
-# kaldi-server
+# kaldi-server-image
