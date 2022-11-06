@@ -33,9 +33,9 @@ RUN git clone --depth 1 https://github.com/kaldi-asr/kaldi.git /opt/kaldi && \
    rm -rf /opt/kaldi/.git
    
 # Installing python3.9
-RUN wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz &&\
-    tar -xf Python-3.9.1.tgz && cd Python-3.9.1 &&\
+RUN wget https://www.python.org/ftp/python/3.10.8/Python-3.10.8.tgz &&\
+    tar -xf Python-3.10.8.tgz && cd Python-3.10.8 &&\
     ./configure --enable-optimizations && make -j 2 &&\
-    make altinstall && ln -sf /usr/local/bin/python3.9 /usr/bin/python3
+    make altinstall && ln -sf /usr/local/bin/python3.10 /usr/bin/python3
 
 WORKDIR /opt/kaldi/
