@@ -32,7 +32,7 @@ RUN git clone --depth 1 https://github.com/kaldi-asr/kaldi.git /opt/kaldi && \
    find /opt/intel -type f -regex '.*\(_mc.?\|_mic\|_thread\|_ilp64\)\.so' -exec rm {} \; && \
    rm -rf /opt/kaldi/.git
    
-# Installing python3.9
+# Installing python3.10
 RUN wget https://www.python.org/ftp/python/3.10.8/Python-3.10.8.tgz &&\
     tar -xf Python-3.10.8.tgz && cd Python-3.10.8 &&\
     ./configure --enable-optimizations && make -j 2 &&\
