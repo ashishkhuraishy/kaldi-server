@@ -41,6 +41,6 @@ RUN wget https://www.python.org/ftp/python/3.10.8/Python-3.10.8.tgz &&\
 # adding redis support
 RUN wget https://download.redis.io/redis-stable.tar.gz && \
     tar -xzvf redis-stable.tar.gz && cd redis-stable && \
-    make && redis-server --daemonize yes
+    make && src/redis-server --daemonize yes
 
 WORKDIR /opt/kaldi/
