@@ -37,5 +37,10 @@ RUN wget https://www.python.org/ftp/python/3.10.8/Python-3.10.8.tgz &&\
     tar -xf Python-3.10.8.tgz && cd Python-3.10.8 &&\
     ./configure --enable-optimizations && make -j 2 &&\
     make altinstall && ln -sf /usr/local/bin/python3.10 /usr/bin/python3
+ 
+# adding redis support
+RUN wget https://download.redis.io/redis-stable.tar.gz && \
+    tar -xzvf redis-stable.tar.gz && cd redis-stable && \
+    make && redis-server --daemonize yes
 
 WORKDIR /opt/kaldi/
